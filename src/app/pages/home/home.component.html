@@ -1,23 +1,14 @@
-<header>
-    <app-menu-bar></app-menu-bar>
-</header>
 <app-menu-title></app-menu-title>
 <div class="container__articles">
     <div class="articles__highlight">
         <app-big-card 
-            photoCover="https://s3-ap-south-1.amazonaws.com/trt-blog-ghost/2023/01/AngularJS.png"
-            cardTitle="Saiu uma nova versão do angular.JS"
-            cardDescription="Depois de anos na mesma versão atrasada o Angular JS anuncia uma nova versão de seu framework adicionando TypeScript mas ainda com foco principal em JavaScript."></app-big-card>
+            Id="{{bigCardArticleData.id}}"
+            photoCover={{bigCardArticleData.photo}}
+            cardTitle={{bigCardArticleData.title}}
+            cardDescription={{bigCardArticleData.description}}></app-big-card>
     </div>
     <div class="articles__others">
-        <app-small-card
-            photoCover="https://i.stack.imgur.com/luaq2.png"
-            cardTitle="Novos dados sobre Angular x Angular.JS"></app-small-card>
-            <app-small-card
-            photoCover="https://massivepixel.io/wp-content/uploads/2022/02/react-latest-version-hero-header-1400x583.png"
-            cardTitle="Nova Versão do React remove suporte para versões legado de navegadores"></app-small-card>
-            <app-small-card
-            photoCover="https://relevant.software/wp-content/uploads/2018/04/0_9N9J9YiGJrISLIBP.png"
-            cardTitle="Vue.js anuncia nova biblioteca standalone que permite integração com outros frameworks SPA"></app-small-card>
+       <app-small-card *ngFor="let article of smallCardArticleData" 
+        Id={{article.id}} photoCover={{article.photo}} cardTitle={{article.title}}></app-small-card>
     </div>
 </div>
